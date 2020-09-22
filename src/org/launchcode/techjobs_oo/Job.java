@@ -1,5 +1,7 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.Objects;
+
 public class Job {
 
     private int id;
@@ -21,7 +23,7 @@ public class Job {
     }
 
     public Job(String aName, Employer aEmployer, Location aLocation,
-               PositionType aPositionType, CoreCompetency aSkill) {
+               PositionType aPositionType, CoreCompetency aCoreCompetency) {
 
         this();
 
@@ -29,7 +31,7 @@ public class Job {
         employer = aEmployer;
         location = aLocation;
         positionType = aPositionType;
-        coreCompetency = aSkill;
+        coreCompetency = aCoreCompetency;
 
     }
 
@@ -48,6 +50,7 @@ public class Job {
 
     @Override
     public int hashCode() {
+
         return id;
     }
 

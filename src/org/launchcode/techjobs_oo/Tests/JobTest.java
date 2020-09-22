@@ -29,29 +29,18 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
 
-        //Generate two Job objects that have identical field values EXCEPT for id. Test that equals returns false.
-        job4 = new Job("SCRUM Master",
-                new Employer("Centene"),
-                new Location("St. Louis"),
-                new PositionType("Business Analyst"),
-                new CoreCompetency("Communication"));
-
-        job5 = new Job("SCRUM Master",
-                new Employer("Centene"),
-                new Location("St. Louis"),
-                new PositionType("Business Analyst"),
-                new CoreCompetency("Communication"));
 
     }
-    //test that the ID values for the two objects are NOT the same and differ by 1.
+    //Test the Empty Constructor
     @Test
     public void testSettingJobId () {
+        //test that the ID values for the two objects are NOT the same and differ by 1.
         assertTrue(job1.getId() != job2.getId());
         assertEquals(job2.getId(), job1.getId() + 1);
 
     }
 
-
+    //Test the Full Constructor
     @Test
     public void  testJobConstructorSetsAllFields () {
 
@@ -72,8 +61,23 @@ public class JobTest {
 
     @Test
     public void testJobsForEquality () {
-    //Test that equals returns false.
-        assertEquals((job1, job2);
+
+        //Generate two Job objects that have identical field values EXCEPT for id. Test that equals returns false.
+        job4 = new Job("SCRUM Master",
+                new Employer("Centene"),
+                new Location("St. Louis"),
+                new PositionType("Business Analyst"),
+                new CoreCompetency("Communication"));
+
+        job5 = new Job("SCRUM Master",
+                new Employer("Centene"),
+                new Location("St. Louis"),
+                new PositionType("Business Analyst"),
+                new CoreCompetency("Communication"));
+
+        //Test that equals returns false.
+
+        assertFalse(job4.equals(job5));
     }
 
 
