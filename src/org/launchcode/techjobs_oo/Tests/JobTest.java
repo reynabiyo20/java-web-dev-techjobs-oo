@@ -63,7 +63,8 @@ public class JobTest {
     @Test
     public void testJobsForEquality () {
 
-        //Generate two Job objects that have identical field values EXCEPT for id. Test that equals returns false.
+        //Generate two Job objects that have identical field values EXCEPT for id.
+
         job4 = new Job("SCRUM Master",
                 new Employer("Centene"),
                 new Location("St. Louis"),
@@ -101,8 +102,13 @@ public class JobTest {
                         "Employer: %s\n" +
                         "Location: %s\n" +
                         "Position Type: %s\n" +
-                        "Core Competency: %s\n",job3.getId(), job3.getName(), job3.getEmployer(), job3.getLocation(),
-                job3.getPositionType(), job3.getCoreCompetency()));
+                        "Core Competency: %s\n",
+                        job3.getId(),
+                        job3.getName(),
+                        job3.getEmployer(),
+                        job3.getLocation(),
+                        job3.getPositionType(),
+                        job3.getCoreCompetency()));
     }
 
 
@@ -113,13 +119,13 @@ public class JobTest {
         assertTrue(job3.toString().contains("Data not available"));
     }
 
-    @Test
-    public void testToStringJobOnlyContainsDataForID () {
-        job3.setName("");
-        job3.getLocation().setValue("");
-        job3.getCoreCompetency().setValue("");
-        job3.getPositionType().setValue("");
-        assertTrue(job3.toString().contains("OOPS! This job does not seem to exist."));
-    }
+//    @Test
+//    public void testToStringJobOnlyContainsDataForID () {
+//        job3.setName("");
+//        job3.getLocation().setValue("");
+//        job3.getCoreCompetency().setValue("");
+//        job3.getPositionType().setValue("");
+//        assertTrue(job3.toString().contains("OOPS! This job does not seem to exist."));
+//    }
 
 }

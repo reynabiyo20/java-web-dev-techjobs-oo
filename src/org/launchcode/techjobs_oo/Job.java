@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Job {
 
-    private int id;
+    public int id;
     private static int nextId = 1;
 
     private String name;
@@ -58,21 +58,26 @@ public class Job {
     @Override
     public String toString () {
 
-        if(name.equals("")) {
+        if(name.trim().equals("")) {
             name = "Data not available";
         }
-        if (employer.getValue().equals("")) {
+
+        if (employer.getValue().trim().equals("")) {
             employer.setValue("Data not available");
         }
-        if (location.getValue().equals("")) {
+
+        if (location.getValue().trim().equals("")) {
             location.setValue("Data not available");
         }
-        if (coreCompetency.getValue().equals("")) {
+
+        if (coreCompetency.getValue().trim().equals("")) {
             coreCompetency.setValue("Data not available");
         }
-        if (positionType.getValue().equals("")) {
+
+        if (positionType.getValue().trim().equals("")) {
             positionType.setValue("Data not available");
         }
+
         return  "\nID: " + id + "\n" +
                 "Name: " + name + "\n" +
                 "Employer: " + employer + "\n" +
