@@ -56,81 +56,90 @@ public class Job {
 
 
     @Override
-    public String toString () {
+    public String toString() {
+        String text1 = "Data not available";
 
-        if(name.trim().equals("")) {
-            name = "Data not available";
+        if (name.trim().equals("")) {
+            name = text1;
         }
 
         if (employer.getValue().trim().equals("")) {
-            employer.setValue("Data not available");
+            employer.setValue(text1);
         }
 
         if (location.getValue().trim().equals("")) {
-            location.setValue("Data not available");
+            location.setValue(text1);
         }
 
         if (coreCompetency.getValue().trim().equals("")) {
-            coreCompetency.setValue("Data not available");
+            coreCompetency.setValue(text1);
         }
 
         if (positionType.getValue().trim().equals("")) {
-            positionType.setValue("Data not available");
+            positionType.setValue(text1);
+
+            return "\nID: " + id + "\n" +
+                    "Name: " + name + "\n" +
+                    "Employer: " + employer + "\n" +
+                    "Location: " + location + "\n" +
+                    "Position Type: " + positionType + "\n" +
+                    "Core Competency: " + coreCompetency + "\n";
+        } else {
+
+            if (employer.getValue().equals(text1)
+                    || location.getValue().equals(text1)
+                    || coreCompetency.getValue().equals(text1)
+                    || positionType.getValue().equals(text1)) {
+            }
+            return "OOPS! This job does not seem to exist.";
+        }
+    }
+
+
+        // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+        //  and id.
+
+        public String getName () {
+            return name;
         }
 
-        return  "\nID: " + id + "\n" +
-                "Name: " + name + "\n" +
-                "Employer: " + employer + "\n" +
-                "Location: " + location + "\n" +
-                "Position Type: " + positionType + "\n" +
-                "Core Competency: " + coreCompetency + "\n";
+        public void setName (String name){
+            this.name = name;
+        }
+
+        public Employer getEmployer () {
+            return employer;
+        }
+
+        public void setEmployer (Employer employer){
+            this.employer = employer;
+        }
+
+        public Location getLocation () {
+            return location;
+        }
+
+        public void setLocation (Location location){
+            this.location = location;
+        }
+
+        public PositionType getPositionType () {
+            return positionType;
+        }
+
+        public void setPositionType (PositionType positionType){
+            this.positionType = positionType;
+        }
+
+        public CoreCompetency getCoreCompetency () {
+            return coreCompetency;
+        }
+
+        public void setCoreCompetency (CoreCompetency coreCompetency){
+            this.coreCompetency = coreCompetency;
+        }
+
+        public int getId () {
+            return id;
+        }
     }
-
-
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Employer getEmployer() {
-        return employer;
-    }
-
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public PositionType getPositionType() {
-        return positionType;
-    }
-
-    public void setPositionType(PositionType positionType) {
-        this.positionType = positionType;
-    }
-
-    public CoreCompetency getCoreCompetency() {
-        return coreCompetency;
-    }
-
-    public void setCoreCompetency(CoreCompetency coreCompetency) {
-        this.coreCompetency = coreCompetency;
-    }
-
-    public int getId() {
-        return id;
-    }
-}
