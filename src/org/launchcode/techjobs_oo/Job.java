@@ -3,7 +3,6 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 public class Job {
-
     public int id;
     private static int nextId = 1;
 
@@ -59,42 +58,30 @@ public class Job {
     public String toString() {
         String text1 = "Data not available";
 
-        if (name.trim().equals("")) {
-            name = text1;
-        }
+        if (name.trim().equals("")
+                && employer.getValue().trim().equals("")
+                && location.getValue().trim().equals("")
+                && coreCompetency.getValue().trim().equals("")
+                && positionType.getValue().trim().equals("")) {
 
-        if (employer.getValue().trim().equals("")) {
+            name.equals(text1);
             employer.setValue(text1);
-        }
-
-        if (location.getValue().trim().equals("")) {
             location.setValue(text1);
-        }
-
-        if (coreCompetency.getValue().trim().equals("")) {
             coreCompetency.setValue(text1);
-        }
-
-        if (positionType.getValue().trim().equals("")) {
             positionType.setValue(text1);
+            return "OOPS! This job does not seem to exist.";
 
-            return "\nID: " + id + "\n" +
-                    "Name: " + name + "\n" +
-                    "Employer: " + employer + "\n" +
-                    "Location: " + location + "\n" +
-                    "Position Type: " + positionType + "\n" +
-                    "Core Competency: " + coreCompetency + "\n";
         } else {
 
-            if (employer.getValue().equals(text1)
-                    || location.getValue().equals(text1)
-                    || coreCompetency.getValue().equals(text1)
-                    || positionType.getValue().equals(text1)) {
-            }
-            return "OOPS! This job does not seem to exist.";
-        }
-    }
+        return "\nID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
 
+        }
+}
 
         // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
         //  and id.
