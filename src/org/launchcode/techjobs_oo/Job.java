@@ -55,36 +55,31 @@ public class Job {
 
 
     @Override
-        public String toString() {
-            String text = "Data not available";
+    public String toString() {
+        String[] jobInformation = {this.name, this.employer.getValue(),
+                this.location.getValue(), this.positionType.getValue(),
+                this.coreCompetency.getValue()};
+        int counter = 0;
 
-            if (name.trim().equals("")) {
-                name = text;
+        for (int i = 0; i < jobInformation.length; i++) {
+            if (jobInformation[i].equals("")) {
+                jobInformation[i] = "Data not available";
+                counter++;
             }
+        }
 
-            if (employer.getValue().trim().equals("") || employer.getValue() == null) {
-                employer.setValue(text);
-            }
-
-            if (location.getValue().trim().equals("") || location.getValue() == null) {
-                location.setValue(text);
-            }
-
-            if (coreCompetency.getValue().trim().equals("") || coreCompetency.getValue() == null) {
-                coreCompetency.setValue(text);
-            }
-
-            if (positionType.getValue().trim().equals("") || positionType.getValue() == null) {
-                positionType.setValue(text);
-            }
-
+        if (counter == 0) {
             return "\nID: " + id + "\n" +
                     "Name: " + name + "\n" +
                     "Employer: " + employer + "\n" +
                     "Location: " + location + "\n" +
                     "Position Type: " + positionType + "\n" +
                     "Core Competency: " + coreCompetency + "\n";
+        } else {
+             return "OOPS! This job does not seem to exist.";
         }
+
+    }
 
 
         // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID

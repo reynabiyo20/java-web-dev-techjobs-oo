@@ -121,12 +121,11 @@ public class JobTest {
 
     @Test
     public void testToStringJobOnlyContainsDataForID () {
-        String text1 = "Data not available";
-        job3.getName().equals(text1);
-        job3.getEmployer().setValue(text1);
-        job3.getLocation().setValue(text1);
-        job3.getCoreCompetency().setValue(text1);
-        job3.getPositionType().setValue(text1);
+        job3.getName().equals("");
+        job3.getEmployer().setValue("");
+        job3.getLocation().setValue("");
+        job3.getCoreCompetency().setValue("");
+        job3.getPositionType().setValue("");
         assertTrue(job3.toString().contains("OOPS! This job does not seem to exist."));
     }
 
