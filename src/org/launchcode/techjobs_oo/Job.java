@@ -56,24 +56,26 @@ public class Job {
 
     @Override
         public String toString() {
+            String text = "Data not available";
+
             if (name.trim().equals("")) {
-                name = "Data not available";
+                name = text;
             }
 
             if (employer.getValue().trim().equals("") || employer.getValue() == null) {
-                employer.setValue("Data not available");
+                employer.setValue(text);
             }
 
             if (location.getValue().trim().equals("") || location.getValue() == null) {
-                location.setValue("Data not available");
+                location.setValue(text);
             }
 
             if (coreCompetency.getValue().trim().equals("") || coreCompetency.getValue() == null) {
-                coreCompetency.setValue("Data not available");
+                coreCompetency.setValue(text);
             }
 
             if (positionType.getValue().trim().equals("") || positionType.getValue() == null) {
-                positionType.setValue("Data not available");
+                positionType.setValue(text);
             }
 
             return "\nID: " + id + "\n" +
