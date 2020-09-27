@@ -1,9 +1,7 @@
 package org.launchcode.techjobs_oo.Tests;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.launchcode.techjobs_oo.*;
-
 import static org.junit.Assert.*;
 
 public class JobTest {
@@ -12,7 +10,7 @@ public class JobTest {
     Job job3;
     Job job4;
     Job job5;
-
+    Job job6;
 
     @Before
     public void createNewJob () {
@@ -103,20 +101,24 @@ public class JobTest {
                         "Location: %s\n" +
                         "Position Type: %s\n" +
                         "Core Competency: %s\n",
-                        job3.getId(),
-                        job3.getName(),
-                        job3.getEmployer(),
-                        job3.getLocation(),
-                        job3.getPositionType(),
-                        job3.getCoreCompetency()));
+                job3.getId(),
+                job3.getName(),
+                job3.getEmployer(),
+                job3.getLocation(),
+                job3.getPositionType(),
+                job3.getCoreCompetency()));
     }
 
 
     //If a field is empty, the method should add, “Data not available” after the label
     @Test
     public void testToStringCheckEmptyField () {
-        job3.getEmployer().setValue("");
-        assertTrue(job3.toString().contains("Data not available"));
+        job6 = new Job("SCRUM Master",
+                new Employer(""),
+                new Location("St. Louis"),
+                new PositionType("Business Analyst"),
+                new CoreCompetency("Communication"));
+        assertEquals(job6.getEmployer().getValue(),("Data Not Available"));
     }
 
     @Test
@@ -130,3 +132,4 @@ public class JobTest {
     }
 
 }
+

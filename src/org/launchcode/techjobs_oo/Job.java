@@ -47,10 +47,10 @@ public class Job {
         return id == job.id;
     }
 
+
     @Override
     public int hashCode() {
-
-        return id;
+        return Objects.hash(id);
     }
 
 
@@ -67,23 +67,27 @@ public class Job {
                 counter++;
             }
         }
-
-        if (counter == 0) {
+        if (counter == 0 ) {
             return "\nID: " + id + "\n" +
-                    "Name: " + name + "\n" +
-                    "Employer: " + employer + "\n" +
-                    "Location: " + location + "\n" +
-                    "Position Type: " + positionType + "\n" +
-                    "Core Competency: " + coreCompetency + "\n";
-        } else {
-             return "OOPS! This job does not seem to exist.";
-        }
+                    "Name: " + jobInformation[0] + "\n" +
+                    "Employer: " + jobInformation[1] + "\n" +
+                    "Location: " + jobInformation[2] + "\n" +
+                    "Position Type: " + jobInformation[3] + "\n" +
+                    "Core Competency: " + jobInformation[4] + "\n";
 
+        } else {
+            return "OOPS! This job does not seem to exist.";
+        }
     }
 
 
-        // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
+
+    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
         //  and id.
+
+    public int getId () {
+        return id;
+    }
 
         public String getName () {
             return name;
@@ -125,7 +129,5 @@ public class Job {
             this.coreCompetency = coreCompetency;
         }
 
-        public int getId () {
-            return id;
-        }
-    }
+
+}
