@@ -26,11 +26,12 @@ public class JobTest {
                 new PositionType("Quality control"),
                 new CoreCompetency("Persistence"));
 
-
     }
+
     //Test the Empty Constructor
     @Test
     public void testSettingJobId () {
+
         //test that the ID values for the two objects are NOT the same and differ by 1.
         assertTrue(job1.getId() != job2.getId());
         assertEquals(job2.getId(), job1.getId() + 1);
@@ -63,13 +64,13 @@ public class JobTest {
 
         //Generate two Job objects that have identical field values EXCEPT for id.
 
-        job4 = new Job("SCRUM Master",
+        job4 = new Job("Scrum Master",
                 new Employer("Centene"),
                 new Location("St. Louis"),
                 new PositionType("Business Analyst"),
                 new CoreCompetency("Communication"));
 
-        job5 = new Job("SCRUM Master",
+        job5 = new Job("Scrum Master",
                 new Employer("Centene"),
                 new Location("St. Louis"),
                 new PositionType("Business Analyst"),
@@ -113,23 +114,22 @@ public class JobTest {
     //If a field is empty, the method should add, “Data not available” after the label
     @Test
     public void testToStringCheckEmptyField () {
-        job6 = new Job("SCRUM Master",
+        job6 = new Job("Scrum Master",
                 new Employer(""),
                 new Location("St. Louis"),
                 new PositionType("Business Analyst"),
                 new CoreCompetency("Communication"));
-        assertEquals(job6.getEmployer().getValue(),("Data Not Available"));
+        assertTrue(job6.toString().contains("Data not available"));
     }
 
     @Test
     public void testToStringJobOnlyContainsDataForID () {
-        job3.getName().equals("");
+        job3.setName("");
         job3.getEmployer().setValue("");
         job3.getLocation().setValue("");
         job3.getCoreCompetency().setValue("");
         job3.getPositionType().setValue("");
-        assertTrue(job3.toString().contains("OOPS! This job does not seem to exist."));
+        assertEquals(job3.toString(), "OOPS! This job does not seem to exist.");
     }
-
 }
 

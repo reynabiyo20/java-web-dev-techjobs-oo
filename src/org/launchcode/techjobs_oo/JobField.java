@@ -57,14 +57,4 @@ public abstract class JobField {
         return super.hashCode();
     }
 
-
-
-
-
-
-
-
-
-
-
 }

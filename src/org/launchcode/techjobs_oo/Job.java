@@ -17,7 +17,7 @@ public class Job {
     //  the 'id' field.
 
     public Job() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
 
@@ -67,19 +67,21 @@ public class Job {
                 counter++;
             }
         }
-        if (counter == 0 ) {
+
+        if (counter == jobInformation.length) {
+
+            return "OOPS! This job does not seem to exist.";
+
+        } else {
+
             return "\nID: " + id + "\n" +
                     "Name: " + jobInformation[0] + "\n" +
                     "Employer: " + jobInformation[1] + "\n" +
                     "Location: " + jobInformation[2] + "\n" +
                     "Position Type: " + jobInformation[3] + "\n" +
                     "Core Competency: " + jobInformation[4] + "\n";
-
-        } else {
-            return "OOPS! This job does not seem to exist.";
         }
     }
-
 
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
@@ -128,6 +130,4 @@ public class Job {
         public void setCoreCompetency (CoreCompetency coreCompetency){
             this.coreCompetency = coreCompetency;
         }
-
-
 }
